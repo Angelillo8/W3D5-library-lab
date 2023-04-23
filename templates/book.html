@@ -1,0 +1,18 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Library</h1>
+        <div class="book-container">
+
+            <div class="book">
+                <h2>{{ book.title }}</h2>
+                <h3>{{ book.author }}</h3>
+                <h4>{{ book.genre }}</h4>
+            </div>
+        </div>
+        <a href="/library">go back to all orders </a>
+    </body>
+</html>

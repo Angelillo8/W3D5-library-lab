@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Library</h1>
+<div class="book_container">
+{% for book in books %}
+<div class="book">
+    <h2>{{ book.title }}</h2>
+    <h3>{{ book.author }}</h3>
+    <h3>{{ book.genre }}</h3>
+
+    <form class="form-inline" action="/library/{{ book.title }}" method="">
+        <input type="submit" value="View book">
+    </form>
+
+    <form class="form-inline" action="/delete/{{ book.title }}" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+
+{% block form %}
+
+<form action="/library" method="post">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" value=""><br>
+    <label for="author">Author:</label><br>
+    <input type="text" id="author" name="author" value=""><br>
+    <label for="genre">Genre:</label><br>
+    <input type="text" id="genre" name="genre" value=""><br>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
